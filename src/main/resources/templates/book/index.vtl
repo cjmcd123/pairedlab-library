@@ -13,7 +13,13 @@
             <td>$book.getTitle()</td>
             <td>$book.getAuthor()</td>
             <td>$book.getOnLoan()</td>
-            <td>$book.getCurrentBorrower()</td>
+            <td>#if ($book.getOnLoan())
+            $book.getCurrentBorrower()
+            #else NA
+            #end
+            </td>
+
+
         </tr>
         #end
     </table>
