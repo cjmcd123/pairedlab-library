@@ -1,5 +1,9 @@
 package models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "books")
 public class Book {
 
     private int id;
@@ -18,22 +22,30 @@ public class Book {
         this.onLoan = false;
     }
 
+    @Id
+    @GeneratedValue
+    @Column(name = "id")
     public int getId() {
         return id;
     }
 
+    @Column(name = "title")
     public String getTitle() {
         return title;
     }
 
+    @Column(name = "author")
     public String getAuthor() {
         return author;
     }
 
+    @Column(name = "onLoan")
     public Boolean getOnLoan() {
         return onLoan;
     }
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @Column(name = "borrower_id", nullable = true)
     public Borrower getCurrentBorrower() {
         return currentBorrower;
     }
