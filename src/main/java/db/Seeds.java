@@ -1,8 +1,6 @@
 package db;
 
 import models.Book;
-import models.Borrower;
-import models.Library;
 
 public class Seeds {
     public static void seedData() {
@@ -14,11 +12,6 @@ public class Seeds {
         Book book4 = new Book("Fear and loathing in las vegas", "Hunter S. Thompson");
         Book book5 = new Book("Letter to my fanny", "Cherry Healey");
 
-        Borrower borrower1 = new Borrower("Jack");
-        Borrower borrower2 = new Borrower("Craig");
-        Borrower borrower3 = new Borrower("Debi");
-
-        Library library = new Library("Clock Books");
 
 
-}}
+}
