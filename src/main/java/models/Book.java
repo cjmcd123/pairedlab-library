@@ -11,15 +11,17 @@ public class Book {
     private String author;
     private Boolean onLoan;
     private Borrower currentBorrower;
+    private Library library;
 
     public Book(){
 
     }
 
-    public Book(String title, String author) {
+    public Book(String title, String author, Library library) {
         this.title = title;
         this.author = author;
         this.onLoan = false;
+        this.library = library;
     }
 
     @Id
@@ -50,6 +52,12 @@ public class Book {
         return currentBorrower;
     }
 
+    @ManyToOne
+    @JoinColumn(name = "libaray_id", nullable = false)
+    public Library getLibrary() {
+        return library;
+    }
+
     public void setId(int id) {
         this.id = id;
     }
@@ -68,5 +76,9 @@ public class Book {
 
     public void setCurrentBorrower(Borrower currentBorrower) {
         this.currentBorrower = currentBorrower;
+    }
+
+    public void setLibrary(Library library) {
+        this.library = library;
     }
 }
