@@ -1,6 +1,6 @@
-package controllers;
+package db;
 
-import db.DBHelper;
+
 import models.Book;
 import models.Borrower;
 
