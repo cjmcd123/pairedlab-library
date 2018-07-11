@@ -2,6 +2,7 @@ package models;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "borrowers")
@@ -9,7 +10,7 @@ public class Borrower {
 
     private int id;
     private String name;
-    private ArrayList<Book> itemsBorrowed;
+    private List<Book> itemsBorrowed;
 
     public Borrower(){
 
@@ -31,8 +32,8 @@ public class Borrower {
         return name;
     }
 
-    @OneToMany(mappedBy = "books")
-    public ArrayList<Book> getItemsBorrowed() {
+    @OneToMany(mappedBy = "currentBorrower")
+    public List<Book> getItemsBorrowed() {
         return itemsBorrowed;
     }
 
@@ -44,7 +45,7 @@ public class Borrower {
         this.name = name;
     }
 
-    public void setItemsBorrowed(ArrayList<Book> itemsBorrowed) {
+    public void setItemsBorrowed(List<Book> itemsBorrowed) {
         this.itemsBorrowed = itemsBorrowed;
     }
 }

@@ -45,7 +45,7 @@ public class Book {
     }
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @Column(name = "borrower_id", nullable = true)
+    @JoinColumn(name = "borrower_id", nullable = true)
     public Borrower getCurrentBorrower() {
         return currentBorrower;
     }
