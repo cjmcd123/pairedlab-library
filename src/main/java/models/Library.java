@@ -57,4 +57,9 @@ public class Library {
     public void setBorrowers(List<Borrower> borrowers) {
         this.borrowers = borrowers;
     }
+
+    public void lend(Borrower borrower, Book book){
+        borrower.borrow(book);
+        book.lend(borrower);
+    }
 }

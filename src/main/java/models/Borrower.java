@@ -61,4 +61,12 @@ public class Borrower {
     public void setLibrary(Library library) {
         this.library = library;
     }
+
+    public void borrow(Book book) {
+        this.itemsBorrowed.add(book);
+    }
+
+    public void returnBook(Book book){
+        this.itemsBorrowed.remove(book);
+    }
 }

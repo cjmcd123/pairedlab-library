@@ -10,6 +10,8 @@ public class MainController {
         VelocityTemplateEngine velocityTemplateEngine =new VelocityTemplateEngine();
         BookController bookController =new BookController();
         Seeds.seedData();
+
+
     }
 
 }
