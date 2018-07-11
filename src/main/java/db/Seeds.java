@@ -1,6 +1,8 @@
 package db;
 
+
 import models.*;
+
 
 public class Seeds {
     public static void seedData() {
@@ -8,6 +10,7 @@ public class Seeds {
 
         Library library = new Library("Codeclan Library");
         DBHelper.save(library);
+
 
         Book book1 = new Book("Lord of the rings", "J.R.R Tolkien", library);
         DBHelper.save(book1);
@@ -25,4 +28,6 @@ public class Seeds {
 
     }
 
-}
+
+
+}}
