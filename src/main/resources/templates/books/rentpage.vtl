@@ -1,5 +1,7 @@
 <p class="pageHeader">Rental Page</p>
 
+<form action="/books/$book.getId()/rent" method="post">
+
 <label for="borrower">Borrower:</label> <!-- NEW -->
 <select id="borrower" name="borrower">
     <option value="null">None</option>
@@ -7,3 +9,7 @@
     <option value="$borrower.getId()">$borrower.getName()</option>
     #end
 </select>
+
+<input type="submit" value="Rent" class="button"/>
+
+</form>

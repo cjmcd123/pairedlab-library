@@ -2,6 +2,7 @@ package models;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -21,6 +22,7 @@ public class Borrower {
     public Borrower(String name, Library library) {
         this.name = name;
         this.library = library;
+        this.itemsBorrowed = new HashSet<>();
     }
 
     @Id
