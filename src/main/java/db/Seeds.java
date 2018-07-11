@@ -7,7 +7,9 @@ import models.*;
 
 public class Seeds {
     public static void seedData() {
-        DBHelper.deleteAll(Object.class);
+        DBHelper.deleteAll(Book.class);
+        DBHelper.deleteAll(Borrower.class);
+        DBHelper.deleteAll(Library.class);
 
         Library library = new Library("Codeclan Library");
         DBHelper.save(library);
