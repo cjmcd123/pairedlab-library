@@ -95,7 +95,7 @@ public class BookController {
             Book book = DBHelper.find(id, Book.class);
             List<Borrower> borrowers = DBHelper.getAll(Borrower.class);
             model.put("template", "templates/books/rentpage.vtl");
-            model.put("books", book);
+            model.put("book", book);
             model.put("borrowers", borrowers);
             return new ModelAndView(model, "templates/layout.vtl");
         }, velocityTemplateEngine);
