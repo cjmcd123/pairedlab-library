@@ -1,2 +1,12 @@
-<p>$book.getTitle()</p>
+<ul>
+    <li>Title: $book.getTitle()</li>
+    <li>Author: $book.getAuthor()</li>
+    <li>On Loan: $book.getOnLoan() </li>
+    <li>Current Borrower: #if ($book.getOnLoan())
+        $book.getCurrentBorrower()
+        #else NA
+        #end
+    </li>
+</ul>
+
 
