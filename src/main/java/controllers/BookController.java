@@ -94,7 +94,7 @@ public class BookController {
             int id = Integer.parseInt(req.params(":id"));
             Book book = DBHelper.find(id, Book.class);
             List<Borrower> borrowers = DBHelper.getAll(Borrower.class);
-            model.put("template", "templates/books/rent.vtl");
+            model.put("template", "templates/books/rentpage.vtl");
             model.put("books", book);
             model.put("borrowers", borrowers);
             return new ModelAndView(model, "templates/layout.vtl");

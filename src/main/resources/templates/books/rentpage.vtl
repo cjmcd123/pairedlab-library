@@ -1,0 +1,9 @@
+<p class="pageHeader">Rental Page</p>
+
+<label for="borrower">Borrower:</label> <!-- NEW -->
+<select id="borrower" name="borrower">
+    <option value="null">None</option>
+    #foreach( $borrower in $borrowers )
+    <option value="$borrower.getId()">$borrower.getName()</option>
+    #end
+</select>
