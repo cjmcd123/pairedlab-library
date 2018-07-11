@@ -1,0 +1,26 @@
+<p class="pageHeader">All Books</p>
+
+<div class="container">
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>On Loan</th>
+            <th>Current Borrower</th>
+        </tr>
+        #foreach ($book in $books)
+        <tr>
+            <td>$book.getTitle()</td>
+            <td>$book.getAuthor()</td>
+            <td>$book.getOnLoan()</td>
+            <td>#if ($book.getOnLoan())
+            $book.getCurrentBorrower()
+            #else NA
+            #end
+            </td>
+
+
+        </tr>
+        #end
+    </table>
+</div>
