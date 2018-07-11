@@ -1,0 +1,13 @@
+<p class="pageHeader">Edit Department</p>
+
+<form action="/books/$book.getId()" method="post">
+
+    <label for="title">Title:</label>
+    <input type="text" class="inputBox" name="title" required=true id="title" value="$book.getTitle()">
+
+    label for="title">Author:</label>
+        <input type="text" class="inputBox" name="author" required=true id="author" value="$book.getAuthor()">
+
+    <input type="submit" value="Save" class="button"/>
+
+</form>
