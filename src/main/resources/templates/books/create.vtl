@@ -1,0 +1,19 @@
+<p class="pageHeader">New Book</p>
+
+<form action="/books" method="post">
+
+    <label for="title">Title:</label>
+    <input type="text" class="inputBox" name="title" required=true id="title">
+
+    <label for="author">Author:</label>
+    <input type="text" class="inputBox" name="author" required=true id="author">
+
+    <label for="library">Library:</label>
+    <select id="library" name="libraries">
+        <option value="$library.getId()">$library.getName()</option>
+    </select>
+
+
+    <input type="submit" value="Save" class="button"/>
+
+</form>
