@@ -16,6 +16,7 @@ public class BookController {
     public BookController(){this.setupEndpoint();}
 
     private void setupEndpoint(){
+
         get("/books", (req, res)->{
             HashMap<String , Object> model = new HashMap<>();
             List<Book> books = DBHelper.getAll(Book.class);
@@ -24,5 +25,14 @@ public class BookController {
             return new ModelAndView(model, "templates/layout.vtl");
         }, velocityTemplateEngine);
 
+        get("/books/:id", (req, res)-> {
+            String strId = req.params(":id");
+            int bookId = Integer.parseInt(strId);
+            Book bookView = DBHelper.find(bookId, Book.class);
+            HashMap<String , Object> model = new HashMap<>();
+            model.put("book", bookView);
+            model.put("template", "templates/book/show.vtl");
+            return new ModelAndView(model, "templates/layout.vtl");
+        }, velocityTemplateEngine);
     }
 }
