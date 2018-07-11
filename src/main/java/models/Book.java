@@ -81,4 +81,20 @@ public class Book {
     public void setLibrary(Library library) {
         this.library = library;
     }
+
+    public void lend(Borrower borrower) {
+        this.onLoan = true;
+        this.currentBorrower = borrower;
+    }
+
+    public void returnBook(){
+        this.onLoan = false;
+        this.currentBorrower = null;
+    }
+
+    public boolean lendAble() {
+        if (this.onLoan == false){
+            return true;
+        } return false;
+    }
 }

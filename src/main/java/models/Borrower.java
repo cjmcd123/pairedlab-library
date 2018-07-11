@@ -3,6 +3,7 @@ package models;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "borrowers")
@@ -10,7 +11,7 @@ public class Borrower {
 
     private int id;
     private String name;
-    private List<Book> itemsBorrowed;
+    private Set<Book> itemsBorrowed;
     private Library library;
 
     public Borrower(){
@@ -35,7 +36,7 @@ public class Borrower {
     }
 
     @OneToMany(mappedBy = "currentBorrower")
-    public List<Book> getItemsBorrowed() {
+    public Set<Book> getItemsBorrowed() {
         return itemsBorrowed;
     }
 
@@ -53,11 +54,19 @@ public class Borrower {
         this.name = name;
     }
 
-    public void setItemsBorrowed(List<Book> itemsBorrowed) {
+    public void setItemsBorrowed(Set<Book> itemsBorrowed) {
         this.itemsBorrowed = itemsBorrowed;
     }
 
     public void setLibrary(Library library) {
         this.library = library;
+    }
+
+    public void borrow(Book book) {
+        this.itemsBorrowed.add(book);
+    }
+
+    public void returnBook(Book book){
+        this.itemsBorrowed.remove(book);
     }
 }
