@@ -24,7 +24,7 @@ public class BookController {
         get("/books", (req, res)->{
             HashMap<String , Object> model = new HashMap<>();
             List<Book> books = DBHelper.getAll(Book.class);
-            model.put("template", "templates/book/index.vtl");
+            model.put("template", "templates/books/index.vtl");
             model.put("books", books);
             return new ModelAndView(model, "templates/layout.vtl");
         }, velocityTemplateEngine);
@@ -33,6 +33,9 @@ public class BookController {
         get("/books/new", (req, res) -> {
             HashMap<String, Object> model = new HashMap<>();
             model.put("template", "templates/books/create.vtl");
+            List<Library> libraries = DBHelper.getAll(Library.class);
+            Library library = libraries.get(0);
+            model.put("linrary", library);
             return new ModelAndView(model, "templates/layout.vtl");
         }, velocityTemplateEngine);
 
@@ -57,7 +60,7 @@ public class BookController {
         post("/books", (req, res) -> {
             String title = req.queryParams("title");
             String author = req.queryParams("author");
-            int id = Integer.parseInt(req.params(":id"));
+            int id = Integer.parseInt(req.params("library"));
             Library library = DBHelper.find(id, Library.class);
             Book book = new Book(title, author, library);
             DBHelper.save(book);
@@ -92,7 +95,7 @@ public class BookController {
             Book book = DBHelper.find(id, Book.class);
             List<Borrower> borrowers = DBHelper.getAll(Borrower.class);
             model.put("template", "templates/books/rent.vtl");
-            model.put("book", book);
+            model.put("books", book);
             model.put("borrowers", borrowers);
             return new ModelAndView(model, "templates/layout.vtl");
         }, velocityTemplateEngine);
