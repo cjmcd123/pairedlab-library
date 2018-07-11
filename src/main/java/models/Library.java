@@ -1,7 +1,10 @@
 package models;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 
+@Entity
+@Table(name = "libraries")
 public class Library {
 
     private int id;
@@ -17,18 +20,26 @@ public class Library {
         this.name = name;
     }
 
+    @Id
+    @GeneratedValue
+    @Column(name = "id")
     public int getId() {
         return id;
     }
 
+    @Column(name = "name")
     public String getName() {
         return name;
     }
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @Column(name = "book_id", nullable = true)
     public ArrayList<Book> getBooks() {
         return books;
     }
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @Column(name = "borrower_id", nullable = true)
     public ArrayList<Borrower> getBorrowers() {
         return borrowers;
     }
